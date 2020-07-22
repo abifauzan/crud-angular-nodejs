@@ -1,0 +1,57 @@
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="sidebar-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          (click)="setTitle('Agri Permata | Dashboard')"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact:true}"
+          [routerLink]="['/dashboard']">
+          <i class="fa fa-home"></i>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          (click)="setTitle('Agri Permata | Dashboard - Products')"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{exact:true}"
+          [routerLink]="['/dashboard/products']">
+          <i class="fa fa-shopping-cart"></i>
+          Products
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-users"></i>
+          Users
+        </a>
+      </li>
+
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Saved reports</span>
+      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+        <i class="fa fa-plus-circles"></i>
+      </a>
+    </h6>
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-file-text"></i>
+          Current month
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fa fa-file-text"></i>
+          Last quarter
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

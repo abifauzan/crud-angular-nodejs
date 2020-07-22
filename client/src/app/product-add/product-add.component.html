@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-start flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-5 border-bottom">
+  <button
+      type="button"
+      class="btn btn-sm btn-outline-info mr-3"
+      (click)="backClicked()"
+      [routerLink]="['/dashboard/product/add']">
+      <i class="fa fa-arrow-left"></i>
+      Back
+    </button><h1 class="h2">Add new Product</h1>
+</div>
+
+<form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+  <div class="form-group">
+    <label for="name">Product Name</label>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      id="productName"
+      placeholder="Enter product name"
+      required>
+      <small
+        *ngIf="!productForm.get('name').valid && productForm.get('name').touched"
+        id="nameHelp"
+        class="form-text text-danger">
+          Please enter product name
+      </small>
+  </div>
+
+  <div class="form-group">
+    <label for="productDesc">Product Description</label>
+    <input
+      formControlName="description"
+      type="text"
+      class="form-control"
+      id="productDesc"
+      placeholder="Enter product description"
+      required>
+      <small
+        *ngIf="!productForm.get('description').valid && productForm.get('description').touched"
+        id="descHelp"
+        class="form-text text-danger">
+          Please enter product description
+      </small>
+  </div>
+
+  <div class="form-group">
+    <label for="productContent">Product Content</label>
+    <textarea
+      formControlName="content"
+      class="form-control"
+      id="productContent"
+      placeholder="Enter product content"
+      required></textarea>
+      <small
+        *ngIf="!productForm.get('content').valid && productForm.get('content').touched"
+        id="descHelp"
+        class="form-text text-danger">
+          Please enter product description
+      </small>
+  </div>
+
+  <div class="form-group">
+    <label for="productImage">Product Image</label>
+    <input
+
+      type="file"
+      class="form-control-file"
+      id="productImage"
+      (change)="onFileChange($event)"
+      required>
+      <!-- <small
+        *ngIf="!productForm.get('imageUrl').touched"
+        id="descHelp"
+        class="form-text text-danger">
+          Please upload product image
+      </small> -->
+  </div>
+
+  <img [src]="imageSrc" *ngIf="imageSrc" style="width:300px">
+
+  <hr>
+
+  <button
+    type="submit"
+    class="btn btn-primary mr-4"
+    [disabled]="!productForm.valid">Submit</button>
+  <button type="reset" class="btn btn-outline-warning" (click)="resetForm()">Reset</button>
+</form>
